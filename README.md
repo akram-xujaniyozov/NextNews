@@ -1,2 +1,2 @@
 # NextNews
-Application is being created by Next.js, React
+News application is being created by Next.js, React
