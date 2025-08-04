@@ -1,9 +1,22 @@
+import { notFound } from "next/navigation";
+
+import { DUMMY_NEWS } from "@/dummy-news";
+
 export default function NewsDetailPage({ params }) {
   const { slug } = params;
+  const newsItem = DUMMY_NEWS.find((newsItem) => newsItem.slug === slug);
+
+  if (!newsItem) {
+    notFound();
+  }
   return (
-    <>
-      <h1>News Detail Page</h1>
-      <p>News ID: {slug}</p>
-    </>
+    <article className="news-article">
+      <header>
+        <img src={`/images/news/${newsItem.image}`} alt={newsItem.title} />
+        <h1>{newsItem.title}</h1>
+        <time dateTime={newsItem.date}>{newsItem.date}</time>
+      </header>
+      <p>{newsItem.content}</p>
+    </article>
   );
 }
