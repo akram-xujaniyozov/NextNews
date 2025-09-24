@@ -16,7 +16,7 @@ export default function FilteredNewsPage({ params }) {
     news = getNewsForYear(selectedYear);
   }
 
-  let newsContent = <p>No news found for the selected period</p>;
+  // let newsContent = <p>No news found for the selected period</p>;
 
   if (news && news.length > 0) {
     newsContent = <NewsList news={news} />;
