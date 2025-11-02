@@ -1,10 +1,12 @@
-import { notFound } from "next/navigation";
+import { notFound } from 'next/navigation';
 
-import { DUMMY_NEWS } from "@/dummy-news";
+import { DUMMY_NEWS } from '@/dummy-news';
 
 export default function InterceptedImagePage({ params }) {
   const { slug: newsItemSlug } = params;
-  const newsItem = DUMMY_NEWS.find((newsItem) => newsItem.slug === newsItemSlug);
+  const newsItem = DUMMY_NEWS.find(
+    (newsItem) => newsItem.slug === newsItemSlug
+  );
 
   if (!newsItem) {
     notFound();
@@ -12,12 +14,12 @@ export default function InterceptedImagePage({ params }) {
 
   return (
     <>
-      <div className="modal-backdrop" />
-      <dialog className="modal" open>
-        <div className="fullscreen-image">
+      <div className='modal-backdrop' />
+      <dialog className='modal' open>
+        <div className='fullscreen-image'>
           <img src={`/images/news/${newsItem.image}`} alt={newsItem.title} />
         </div>
       </dialog>
     </>
-  )
+  );
 }
