@@ -10,7 +10,9 @@ export default function ImagePage({ params }) {
     notFound();
   }
 
-  return <div className="fullscreen-image">
-    <img src={`/images/news/${newsItem.image}`} alt={newsItem.title} />
-  </div>
+  return (
+    <div className="fullscreen-image">
+      <img src={`/images/news/${newsItem.image}`} alt={newsItem.title} />
+    </div>
+  )
 }
